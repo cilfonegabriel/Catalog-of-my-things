@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class Item
   def initialize(publish_date:)
     @id = SecureRandom.hex(10)
