@@ -14,7 +14,6 @@ class MainController
     @app.send(@options.display)
     execute
   end
-
 end
 
 main = MainController.new
