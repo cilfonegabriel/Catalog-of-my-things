@@ -1,4 +1,3 @@
-create item class
 class Item
   def initialize(publish_date:)
     @id = SecureRandom.hex(10)
@@ -8,11 +7,11 @@ class Item
   end
 
   attr_accessor :genre, :author, :label
-  attr_reader :id, :publish_date, :archived 
-
+  attr_reader :id, :publish_date, :archived
 
   def can_be_archived?
-    return true if Date.strptime(publish_date, '%d/%m/%Y') < Date.today - 3652
+    return true if Date.strptime(publish_date, '%d/%m/%Y') < Date.today - 365
+
     false
   end
 
