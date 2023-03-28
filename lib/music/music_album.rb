@@ -1,6 +1,4 @@
-require_relative './item'
-require_relative './genre'
-require 'date'
+require_relative '../music_item'
 
 class MusicAlbum < MusicItem
   attr_accessor :on_spotify
