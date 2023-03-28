@@ -1,35 +1,38 @@
+require 'date'
+require 'securerandom'
+
 class MusicItem
-    attr_accessor :publish_year, :is_archive
-    attr_reader :id, :genre, :author, :label
+  attr_accessor :publish_date, :is_archived
+  attr_reader :id, :genre, :author, :label
 
-    def initialize(publish_year = Date.today, id = SecureRandom.uuid, is_archive = false)
-        @id = id
-        @publish_year = publish_year
-        @is_archive = is_archive
-    end
+  def initialize(publish_date = Date.today, id = SecureRandom.uuid, is_archived: false)
+    @id = id
+    @publish_date = publish_date
+    @is_archived = is_archived
+  end
 
-    def genre = (genre)
-        @genre = genre
-        genre.item.push(self) unless genre.item.include?(self)
-    end
+  def genre=(genre)
+    @genre = genre
+    genre.items.push(self) unless genre.items.include?(self)
+  end
 
-    def author = (author)
-        @author = author
-        author.item.push(self) unless author.item.include?(self)
-    end
+  def author=(author)
+    @author = author
+    author.items.push(self) unless author.items.include?(self)
+  end
 
-    def label = (label)
-        @label = label
-        label.item.push(self) unless label.include?(self)
-    end
+  def label=(label)
+    @label = label
+    label.items.push(self) unless label.items.include?(self)
+  end
 
-    def move_to_archive
-        @is_archive = true if can_be_archived?
-    end
+  def move_to_archive
+    @is_archived = true if can_be_archived?
+  end
 
-    private
+  private
 
-    def can_be_archived?
-        (Date.today - Date.parse(@publish_year)).to_i / 365 > 10
-    end
+  def can_be_archived?
+    (Date.today - Date.parse(@publish_year)).to_i / 365 > 10
+  end
 end

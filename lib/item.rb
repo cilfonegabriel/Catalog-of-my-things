@@ -4,9 +4,8 @@ class Item
   attr_accessor :genre, :author, :label, :publish_date
   attr_reader :id, :archived
 
-  def initialize(genre, author, label, publish_date, archived: false)
+  def initialize(author, label, publish_date, archived: false)
     @id = SecureRandom.uuid
-    @genre = genre
     @author = author
     @label = label
     @publish_date = publish_date
