@@ -1,25 +1,22 @@
 require 'securerandom'
 
 class Item
-  def initialize(publish_date:)
-    @id = SecureRandom.hex(10)
+  attr_accessor :genre, :author, :label, :publish_date
+  attr_reader :id, :archived
+
+  def initialize(id : SecureRandom.uuid, publish_date:)
+    @id = id
     @publish_date = publish_date
     @archived = false
-    @source = nil
   end
 
-  attr_accessor :genre, :author, :label
-  attr_reader :id, :publish_date, :archived
-
   def can_be_archived?
-    return true if Date.strptime(publish_date, '%d/%m/%Y') < Date.today - 365
-
-    false
+    Date.today.year - @published_date.year > 10
   end
 
   def move_to_archive
-    return unless can_be_archived?
-
-    @archived = true
+    if can_be_archived?
+      @archived = true
+    end
   end
 end

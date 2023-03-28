@@ -1,5 +1,5 @@
 class EntryPoint
-  puts 'Welcome to School Library App'
+  puts 'Welcome to the Catalog of my things'
 
   def menu
     puts '1 - List all books'
@@ -10,8 +10,7 @@ class EntryPoint
     puts '6 - List all authors'
     puts '7 - Add a book'
     puts '8 - Add a music album'
-    puts '9 - Add a movie'
-    puts '10 - Add a game'
-    puts '11 - Exit'
+    puts '9 - Add a game'
+    puts '10 - Exit'
   end
 end

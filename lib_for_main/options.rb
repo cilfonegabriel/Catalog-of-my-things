@@ -10,12 +10,11 @@ class Options
     choice = {
       1 => 'book_list', 2 => 'album_list', 3 => 'game_list',
       4 => 'genre_list', 5 => 'label_list', 6 => 'author_list',
-      7 => 'add_book', 8 => 'add_album', 9 => 'add_movie',
-      10 => 'add_game', 11 => 'exit'
+      7 => 'add_book', 8 => 'add_album', 9 => 'add_game', 10 => 'exit'
     }
 
     case option
-    when 1..11
+    when 1..10
       choice[option]
     else
       puts 'Invalid option'
