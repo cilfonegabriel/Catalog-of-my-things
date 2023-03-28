@@ -15,4 +15,11 @@ class MusicAlbum < Item
     def can_be_archived?
         super && @on_spotify
     end
+
+    def self.load_albums
+        file = File.open('../data/music_lbums.json', 'r')
+        data = JSON.parse(file) || []
+        file.close
+        data
+    end
 end
