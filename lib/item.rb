@@ -4,10 +4,13 @@ class Item
   attr_accessor :genre, :author, :label, :publish_date
   attr_reader :id, :archived
 
-  def initialize(id : SecureRandom.uuid, publish_date:)
-    @id = id
+  def initialize(genre, author, label, publish_date, archived: false)
+    @id = SecureRandom.uuid
+    @genre = genre
+    @author = author
+    @label = label
     @publish_date = publish_date
-    @archived = false
+    @archived = archived
   end
 
   def can_be_archived?
@@ -15,8 +18,8 @@ class Item
   end
 
   def move_to_archive
-    if can_be_archived?
-      @archived = true
-    end
+    return unless can_be_archived?
+
+    @archived = true
   end
 end
