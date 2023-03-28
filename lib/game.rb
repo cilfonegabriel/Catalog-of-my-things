@@ -12,6 +12,7 @@ class Game < Item
   private
 
   def can_be_archived?
+    # @im- I think super in unnecessary 
     super && ((Date.today.year - @last_played_at.year) > 2)
   end
 end
