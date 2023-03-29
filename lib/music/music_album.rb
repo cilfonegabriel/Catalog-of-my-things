@@ -13,7 +13,7 @@ class MusicAlbum < MusicItem
   end
 
   def self.load_albums
-    file = File.open('../data/music_lbums.json', 'r')
+    file = File.open('../../data/music_album.json', 'r')
     data = JSON.parse(file) || []
     file.close
     data

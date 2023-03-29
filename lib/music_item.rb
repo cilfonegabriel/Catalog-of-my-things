@@ -2,12 +2,12 @@ require 'date'
 require 'securerandom'
 
 class MusicItem
-  attr_accessor :publish_date, :is_archived
+  attr_accessor :publish_year, :is_archived
   attr_reader :id, :genre, :author, :label
 
-  def initialize(publish_date = Date.today, id = SecureRandom.uuid, is_archived: false)
+  def initialize(publish_year = Date.today, id = SecureRandom.uuid, is_archived: false)
     @id = id
-    @publish_date = publish_date
+    @publish_year = publish_year
     @is_archived = is_archived
   end
 
