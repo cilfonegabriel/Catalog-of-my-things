@@ -1,41 +1,16 @@
-require 'json'
-require_relative '../lib/music/genre'
+require_relative './helpers/handle_data'
+require_relative './modules/music_album'
+require_relative './music_album'
+require_relative './genre'
 
 class App
-  def book_list
-    puts 'pending feature'
+  include MusicAlbumModule
+
+  def initialize
+    load_music_albums
   end
 
-  def game_list
-    puts 'pending feature'
-  end
-
-  def genre_list
-    puts 'pending feature'
-  end
-
-  def label_list
-    puts 'pending feature'
-  end
-
-  def author_list
-    puts 'pending feature'
-  end
-
-  def add_book
-    puts 'pending feature'
-  end
-
-  def add_album                          
-    puts 'pending feature'
-  end
-
-  def add_game
-    puts 'pending feature'
-  end
-
-  def exit
-    puts 'Thank you for using our services'
-    abort
+  def save_files
+    save_music_albums(@music_albums)
   end
 end

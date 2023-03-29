@@ -5,7 +5,8 @@ class Menu
   app = App.new
 
   puts 'Welcome to our Catalog!'
-
+  puts "\n"
+  
   loop do
     Option.new.menu_option
     option = gets.chomp
