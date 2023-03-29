@@ -1,12 +1,12 @@
 require_relative '../lib/app'
 require_relative './options'
 
-class Menu 
+class Menu
   app = App.new
 
   puts 'Welcome to our Catalog!'
   puts "\n"
-  
+
   loop do
     Option.new.menu_option
     option = gets.chomp
@@ -31,9 +31,6 @@ class Menu
       app.add_game
     when '10'
       app.save_files
-      puts puts "Thank you for using this app!\n\n"
-      break
-    when '11'
       puts puts "Thank you for using this app!\n\n"
       break
     else
