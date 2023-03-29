@@ -1,3 +1,6 @@
+require_relative '../lib/app'
+require_relative './options'
+
 class Menu 
   app = App.new
 

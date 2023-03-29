@@ -1,6 +1,6 @@
 class Option
   def menu_option
-    puts 'Welcome to the Catalog of my things'
+    puts 'Please enter the number of the option you want'
     puts '1 - List all books'
     puts '2 - List all music albums'
     puts '3 - List all games'
