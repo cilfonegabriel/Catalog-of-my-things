@@ -1,23 +1,15 @@
-class Options
-  def display
-    puts 'Please type the number of your selection'
-    option = gets.chomp.to_i
-
-    select(option)
-  end
-
-  def select(option)
-    choice = {
-      1 => 'book_list', 2 => 'album_list', 3 => 'game_list',
-      4 => 'genre_list', 5 => 'label_list', 6 => 'author_list',
-      7 => 'add_book', 8 => 'add_album', 9 => 'add_game', 10 => 'exit'
-    }
-
-    case option
-    when 1..10
-      choice[option]
-    else
-      puts 'Invalid option'
-    end
+class Option
+  def menu_option
+    puts 'Welcome to the Catalog of my things'
+    puts '1 - List all books'
+    puts '2 - List all music albums'
+    puts '3 - List all games'
+    puts '4 - List all genres'
+    puts '5 - List all labels'
+    puts '6 - List all authors'
+    puts '7 - Add a book'
+    puts '8 - Add a music album'
+    puts '9 - Add a game'
+    puts '10 - Exit'
   end
 end
