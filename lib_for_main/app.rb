@@ -1,3 +1,6 @@
+require 'json'
+require 'uuid'
+
 class App
   def book_list
     puts 'pending feature'
