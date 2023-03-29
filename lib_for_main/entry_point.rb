@@ -1,7 +1,6 @@
-class EntryPoint
-  puts 'Welcome to the Catalog of my things'
-
-  def menu
+class Option
+  def menu_option
+    puts 'Welcome to the Catalog of my things'
     puts '1 - List all books'
     puts '2 - List all music albums'
     puts '3 - List all games'

@@ -1,5 +1,5 @@
 require 'json'
-require 'uuid'
+require_relative '../lib/music/genre'
 
 class App
   def book_list
@@ -26,7 +26,7 @@ class App
     puts 'pending feature'
   end
 
-  def add_album
+  def add_album                          
     puts 'pending feature'
   end
 
