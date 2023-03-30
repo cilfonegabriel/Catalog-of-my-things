@@ -14,7 +14,6 @@ class Game < Item
 
   private
 
-
   # def can_be_archived?
   #  super() && year_since_last_played_at > 2
   # end
