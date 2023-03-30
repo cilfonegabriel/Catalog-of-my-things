@@ -14,5 +14,12 @@ describe Label do
             label_one.add_item(item_one)
             expect(label_one.items).to include(item_one)
         end
+
+        it 'Check that it is inside the item instance' do
+            label_one = Label.new(title: 'Iliada', color: 'Black')
+            item_one = Item.new(publish_date: '2020-06-06')
+            label_one.add_item(item_one)
+            expect(item_one.label).to eq label_one
+        end
     end
 end
