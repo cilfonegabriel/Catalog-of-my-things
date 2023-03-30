@@ -14,7 +14,7 @@ class Game < Item
 
   private
 
-  
+
   # def can_be_archived?
   #  super() && year_since_last_played_at > 2
   # end
@@ -23,7 +23,7 @@ class Game < Item
   #  d = (Date.today - Date.parse(last_played_at)) / 365
   #  d.to_i
   # end
-  
+
   def can_be_archived?
     super && ((Date.today.year - Date.parse(@last_played_at).year) > 2)
   end
