@@ -12,4 +12,23 @@ module BookData
           @books.push(new_book)
         end
     end
+
+    def save_book(books)
+        book_json = []
+        books.map do |book|
+          book_json.push({
+                           id: book.id,
+                           archived: book.archived,
+                           publisher: book.publisher,
+                           cover_state: book.cover_state,
+                           publish_date: book.publish_date,
+                           label: {
+                             id: book.label.id,
+                             title: book.label.title,
+                             color: book.label.color
+                           }
+                         })
+        end
+        HandleData.new('book').write(book_json)
+    end
 end
