@@ -13,3 +13,5 @@ CREATE TABLE music_albums (
   on_spotify BOOLEAN,
   CONSTRAINT fk_genres FOREIGN KEY(genre_id) REFERENCES genres(id)
 );
+
+CREATE INDEX index_albums_genres ON music_albums(genre_id);
