@@ -8,6 +8,17 @@ CREATE TABLE labels (
   PRIMARY KEY(id)
 )
 
+-- book table
+CREATE TABLE books (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  publisher VARCHAR(35)
+  cover_state VARCHAR(35)
+  publish_date DATE,
+  id_label INT,
+  PRIMARY KEY(id),
+  CONSTRAINT reference_labels FOREIGN KEY(label_id) REFERENCES labels(id)
+)
+
 -- genres table
 CREATE TABLE genres (
   id BIGSERIAL PRIMARY KEY,
