@@ -7,5 +7,12 @@ describe Label do
             label_one = Label.new(title: 'Iliada', color: 'Black')
             expect(label_one).to be_instance_of(Label)
         end
+        
+        it 'Add a new item to the items array' do
+            label_one = Label.new(title: 'Iliada', color: 'Black')
+            item_one = Item.new(publish_date: '2020-06-06')
+            label_one.add_item(item_one)
+            expect(label_one.items).to include(item_one)
+        end
     end
 end
