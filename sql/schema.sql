@@ -1,5 +1,13 @@
 CREATE DATABASE Catalog
 
+-- labels table
+CREATE TABLE labels (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  title VARCHAR(35),
+  color VARCHAR(15),
+  PRIMARY KEY(id)
+)
+
 -- genres table
 CREATE TABLE genres (
   id BIGSERIAL PRIMARY KEY,
@@ -19,7 +27,7 @@ CREATE INDEX index_albums_genres ON music_albums(genre_id);
 
 -- authors table
 CREATE TABLE authors(
-  id INT GENERATED ALWAYS AS INDENTITY,
+  id INT GENERATED ALWAYS AS IDENTITY,
   first_name VARCHAR(100),
   last_name VARCHAR(100),
   PRIMARY KEY(id)
