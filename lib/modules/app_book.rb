@@ -12,6 +12,19 @@ module BookModule
             Cover State: #{book.cover_state}"
         end
       end
-    end      
+    end
+    
+    def label_list
+      if @labels.empty?
+        puts "\nThe Label list is empty, add a newo Book in the menu\n"
+      else
+        puts "\n\nLabel list:"
+        @labels.each_with_index do |label, index|
+          puts "#{index + 1} -
+            Title: #{label.title}
+            Color: #{label.color}"
+        end
+      end
+    end  
 end
   
