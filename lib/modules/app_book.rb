@@ -26,5 +26,24 @@ module BookModule
         end
       end
     end  
+
+    def add_book
+      puts "\nEnter the Book info here\n"
+      puts "\nEnter the Title's name:\n"
+      book_title = gets.chomp
+      puts "\nEnter the book's publish date:\n"
+      book_publish = gets.chomp
+      puts "\nEnter the book's publisher:\n"
+      book_publisher = gets.chomp
+      puts "\nEnter the book's cover state:\n"
+      book_cover = gets.chomp
+      puts "\nEnter the book's cover color:\n"
+      book_color = gets.chomp
+      label = Label.new(title: book_title, color: book_color)
+      book = Book.new(publish_date: book_publish, publisher: book_publisher, cover_state: book_cover)
+      label.add_item(book)
+      @books.push(book)
+      puts 'The Book has been created successfully'
+    end
 end
   
