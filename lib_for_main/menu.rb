@@ -4,7 +4,7 @@ require_relative './options'
 class Menu
   app = App.new
 
-  puts 'Welcome to our Catalog!'
+  puts "\nWelcome to the Catalog of my things App!"
   puts "\n"
 
   loop do
@@ -31,10 +31,11 @@ class Menu
       app.add_game
     when '10'
       app.save_files
-      puts puts "Thank you for using this app!\n\n"
+      puts "\n"
+      puts puts "Hope you have a great day, thank you for using the App!\n"
       break
     else
-      puts 'Incorrect input, Please choose between 1 and 7'
+      puts "\nWrong input, select an option by entering a corresponding number!\n"
     end
   end
 end
