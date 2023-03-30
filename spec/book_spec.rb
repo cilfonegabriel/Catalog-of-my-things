@@ -12,5 +12,10 @@ describe Book do
             book_two = Book.new(publisher: 'JK Books', cover_state: 'bad', publish_date: '1990-12-25')
             expect(book_two.can_be_archived?).to be true
         end
+
+        it 'Check if it can be archived case: false' do
+            book_three = Book.new(publisher: 'McKallen', cover_state: 'fair', publish_date: '2015-06-06')
+            expect(book_three.can_be_archived?).to be false
+        end
     end
 end
