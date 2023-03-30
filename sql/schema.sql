@@ -16,8 +16,11 @@ CREATE TABLE books (
   publish_date DATE,
   id_label INT,
   PRIMARY KEY(id),
-  CONSTRAINT reference_labels FOREIGN KEY(label_id) REFERENCES labels(id)
+  CONSTRAINT reference_labels FOREIGN KEY(id_label) REFERENCES labels(id)
 )
+
+-- indexes
+CREATE INDEX label_index ON (id_label)
 
 -- genres table
 CREATE TABLE genres (
@@ -33,7 +36,7 @@ CREATE TABLE music_albums (
   CONSTRAINT fk_genres FOREIGN KEY(genre_id) REFERENCES genres(id)
 );
 
-
+-- indexes
 CREATE INDEX index_albums_genres ON music_albums(genre_id);
 
 -- authors table
