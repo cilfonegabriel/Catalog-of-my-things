@@ -4,12 +4,14 @@ require_relative './music_album'
 require_relative './genre'
 
 require_relative './modules/game_modules'
+require_relative './modules/game_data_modules'
 require_relative './game'
 require_relative './author'
 
 class App
   include MusicAlbumModule
   include GameModule
+  include GameDataModule
 
   def initialize
     load_music_albums
