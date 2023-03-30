@@ -14,6 +14,9 @@ CREATE TABLE music_albums (
   CONSTRAINT fk_genres FOREIGN KEY(genre_id) REFERENCES genres(id)
 );
 
+
+CREATE INDEX index_albums_genres ON music_albums(genre_id);
+
 -- authors table
 CREATE TABLE authors(
   id INT GENERATED ALWAYS AS INDENTITY,
