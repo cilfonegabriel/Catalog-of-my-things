@@ -17,11 +17,11 @@ module MusicAlbumModule
     if @music_albums.empty?
       puts 'No Music Albums'
     else
-      puts "\t\tMusic Albums on our list:"
-      puts '--------------------------------------------------------'
+      puts "\t\tList with our music albums:"
+      puts '----------------------------------------------------------'
       @music_albums.each_with_index do |album, index|
         puts "#{index + 1}
-            Is on spotify: #{album.on_spotify}
+            Available  on spotify: #{album.on_spotify}
             Published Date: #{album.publish_date}"
       end
     end
@@ -43,10 +43,10 @@ module MusicAlbumModule
   end
 
   def add_music_album
-    print 'Enter album\'s genre: '
+    print 'Enter the genre to which the album belongs: '
     genre_name = gets.chomp
 
-    print "\nWhen did it published? [year]: "
+    print "\nYear in which it was published: "
     album_publish_date = gets.chomp.to_i
 
     print 'Is this Music Album on Spotify? [y: true / anykey: false]: '
