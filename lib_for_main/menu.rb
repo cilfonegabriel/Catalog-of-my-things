@@ -3,13 +3,11 @@ require_relative './options'
 
 class Menu
   app = App.new
-
-  puts "\nWelcome to the Catalog of my things App!"
-  puts "\n"
-
+  print "\e[2J\e[f------------------------------------ \n-      Catalog of our Things       -\n"
   loop do
     Option.new.menu_option
-    option = gets.chomp
+    print "----------------------------------- \n--> Select an option (1-9 or x): "
+    option = gets.chomp.upcase
     case option
     when '1'
       app.book_list
@@ -29,13 +27,12 @@ class Menu
       app.add_music_album
     when '9'
       app.add_game
-    when '10'
+    when 'X'
       app.save_files
-      puts "\n"
-      puts puts "Hope you have a great day, thank you for using the App!\n"
+      puts "Thank you for using this app!\n\n"
       break
-    else
-      puts "\nWrong input, select an option by entering a corresponding number!\n"
     end
+    print '--> Push any key to continue...'
+    gets.chomp
   end
 end
