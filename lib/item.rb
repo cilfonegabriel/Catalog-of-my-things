@@ -23,8 +23,6 @@ class Item
     author.items.push(self) unless author.items.include?(self)
   end
 
-  private
-
   def can_be_archived?
     (Date.today - Date.parse(@publish_date)).to_i / 365 > 10
   end
