@@ -1,5 +1,27 @@
 CREATE DATABASE Catalog
 
+-- labels table
+CREATE TABLE labels (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  title VARCHAR(35),
+  color VARCHAR(15),
+  PRIMARY KEY(id)
+)
+
+-- book table
+CREATE TABLE books (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  publisher VARCHAR(35)
+  cover_state VARCHAR(35)
+  publish_date DATE,
+  id_label INT,
+  PRIMARY KEY(id),
+  CONSTRAINT reference_labels FOREIGN KEY(id_label) REFERENCES labels(id)
+)
+
+-- indexes
+CREATE INDEX label_index ON (id_label)
+
 -- genres table
 CREATE TABLE genres (
   id BIGSERIAL PRIMARY KEY,
@@ -14,12 +36,12 @@ CREATE TABLE music_albums (
   CONSTRAINT fk_genres FOREIGN KEY(genre_id) REFERENCES genres(id)
 );
 
-
+-- indexes
 CREATE INDEX index_albums_genres ON music_albums(genre_id);
 
 -- authors table
 CREATE TABLE authors(
-  id INT GENERATED ALWAYS AS INDENTITY,
+  id INT GENERATED ALWAYS AS IDENTITY,
   first_name VARCHAR(100),
   last_name VARCHAR(100),
   PRIMARY KEY(id)

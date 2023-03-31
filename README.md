@@ -66,9 +66,9 @@
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo & Project Presentation <a name="live-demo"></a>
+## 🚀 Project Presentation <a name="live-demo"></a>
 
-- Live Demo coming soon...
+- Project Presentation [here](https://drive.google.com/file/d/1iPPUP7x4JXWxLkLmgde63dDUTfih9mPV/view?usp=share_link)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

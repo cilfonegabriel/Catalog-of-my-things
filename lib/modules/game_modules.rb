@@ -92,7 +92,6 @@ module GameModule
   end
 
   def valid_date?(date)
-    # date_format = '%d-%m-%Y'
     date_format = '%Y-%m-%d'
     DateTime.strptime(date, date_format)
     true

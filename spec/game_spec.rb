@@ -5,7 +5,6 @@ require 'date'
 
 describe Game do
   before(:each) do
-    # @game = Game.new(publish_date: '03/01/2011', multiplayer: 'xxx', last_played_at: '01/01/2020')
     @game = Game.new(publish_date: '2011-01-01', multiplayer: 'xxx', last_played_at: '2020-01-01')
   end
 
