@@ -3,6 +3,7 @@
 <div align="center">
 
   <img src="./box.png" alt="logo" width="140"  height="auto" />
+  <img src="./catalog_of_my_things.png" alt="logo" width="640"  height="auto" />
   <br/>
 
   <h2><b>Catalog of my things</b></h2>
@@ -36,9 +37,8 @@
 
 # 📖 Catalog of my things <a name="about-project"></a>
 
-**Catalog of my things** As per your request, uses console application that will allow you to keep a catalog of your possessions such as books, music albums, movies, and games. You can follow the UML class diagram provided for better understanding of classes and their properties and methods. The data will be saved in JSON files.
+**Catalog of my things** In this project, you will create a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games. Everything will be based on the UML class diagram presented below. The data will be stored in JSON files but you will also prepare a database with tables structure analogical to your program's class structure.
 
- <!-- <img src="#" alt="app-demo" /> -->
 
  </br>
 
@@ -48,19 +48,75 @@
 
 <ul>
   <li>Ruby</li>
-  <li>postgresSQL</li>
+  <li>Rspec</li>
 </ul>
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- Add item to the catalog.
-- Check if it can be archived or move to archived.
-- Each class has it own unique methods.
-- Methods from the parent can be accesible correctly through inheritance.
-- Data should be preserved.
-- Friendly and easy to use UI interface.
+Logic
+
+    Each class from the UML class diagram should be created in a separate .rb file.
+    All associations (1-to-many relationships) and aggregations (parent-child relationships) between classes should be implemented.
+    All properties visible in the diagram should be defined and set up in the constructor method. Exception: properties for the 1-to-many relationships should NOT be set in the constructor method. Instead, they should have a custom setter method created.
+    All methods visible in the diagram should be implemented:
+        add_item method (in all classes that have that method)
+            should take an instance of the Item class as an input.
+            should add the input item to the collection of items.
+            should add self as a property of the item object (by using the correct setter from the item object).
+        can_be_archived?() in the Item class
+            should return true if published_date is older than 10 years.
+            otherwise, it should return false.
+        move_to_archive() in the Item class
+            should reuse can_be_archived?() method.
+            should change the archived property to true if the result of the can_be_archived?() method is true.
+            should do nothing if the result of the can_be_archived?() method is false.
+        can_be_archived?() in the Book class
+            should override the method from the parent class.
+            should return true if parent's method returns true OR if cover_state equals to "bad".
+            otherwise, it should return false.
+        can_be_archived?() in the MusicAlbum class
+            should override the method from the parent class.
+            should return true if parent's method returns true AND if on_spotify equals true.
+            otherwise, it should return false.
+        can_be_archived?() in the Movie class
+            should override the method from the parent class.
+            should return true if parent's method returns true OR if silent equals true.
+            otherwise, it should return false.
+        can_be_archived?() in the Game class
+            should override the method from the parent class.
+            should return true if parent's method returns true AND if last_played_at is older than 2 years.
+            otherwise, it should return false.
+    Add unit tests for all implemented methods.
+
+User interface
+
+    Create a main.rb file that will serve as your console app entry-point.
+    Your console app, at the start, should:
+        Present the user with a list of options to perform.
+        Let users choose an option.
+        If needed, ask for parameters for the option.
+        Have a way to quit the app.
+    The following options should be available:
+        List all books
+        List all music albums
+        List all movies
+        List of games
+        List all genres (e.g 'Comedy', 'Thriller')
+        List all labels (e.g. 'Gift', 'New')
+        List all authors (e.g. 'Stephen King')
+        List all sources (e.g. 'From a friend', 'Online shop')
+        Add a book
+        Add a music album
+        Add a movie
+        Add a game
+    All data should be preserved by saving collections in .json files.
+
+Database
+
+    Create a schema.sql file with tables that will be analogical to the structure of the classes in your app. As you cannot implement inheritance in the database tables - add all properties and associations from the parent Item class as table columns to all tables based on the child classes. Thanks to that it can be used to store data in the future.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,15 +132,15 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-This repository might include files with plain SQL that can be used to recreate a database:
-
-- Use [schema.sql](./schema.sql) to create all tables.
-- Use [data.sql](./data.sql) to populate tables with sample data.
-- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
+  ## To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-- Ruby installed locally
+In order to run this project you need:
+
+- Git
+- A GitHub account
+- Ruby installed
 
 ### Setup
 
@@ -112,11 +168,17 @@ bundle install
 
 ### Usage
 
-To run the project, execute the following command in irb:
+To run the project, execute the following command:
 
-```sh
-name = Book.new(name)
-name = Game.new(name, publisher)
+```
+ruby main.rb
+```
+
+### Run tests
+
+To run tests, run the following command:
+```
+rspec spec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
