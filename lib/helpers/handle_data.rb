@@ -1,17 +1,17 @@
 require 'json'
 
 class HandleData
-  def initialize(filename)
-    @filename = "data/#{filename}.json"
+  def initialize(file_path)
+    @file_path = "data/#{file_path}.json"
   end
 
   def read
-    data = File.read(@filename)
+    data = File.read(@file_path)
     JSON.parse(data)
   end
 
   def write(data)
     json = JSON.generate(data)
-    File.write(@filename, json)
+    File.write(@file_path, json)
   end
 end

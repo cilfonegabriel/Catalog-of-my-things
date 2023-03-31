@@ -9,10 +9,6 @@ describe Author do
     @item = Item.new(publish_date: Date.today)
   end
 
-  it 'it is an instance of Author class' do
-    expect(@author).to be_instance_of(Author)
-  end
-
   it 'it should return the first name of author correctly' do
     expect(@author.first_name).to eq('Ivan')
   end
@@ -30,5 +26,9 @@ describe Author do
   it 'Should return author for item correctly' do
     @author.add_item(@item)
     expect(@item.author).to eq(@author)
+  end
+
+  it 'it is an instance of Author class' do
+    expect(@author).to be_instance_of(Author)
   end
 end

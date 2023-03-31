@@ -16,7 +16,3 @@ class Author
     @items.push(item)
   end
 end
-
-# @im-20230328 test temp - borrar
-# a = Author.new("Gabriel", "Garcia Marquez")
-# p a
